@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Price Calculator</title>
+
+	<!--scripts-->
+	<script type="text/javascript">
+		//declare global variables for exchange rates and exchange type placeholder
+		var GBPrate = 0.72773;
+		var CADrate = 1.27906;
+		var EURrate = 0.82402;
+		var YENrate = 104.2180;
+		var RUPrate = 72.8952;
+		var exchangeType;
+
+		//processInputOutput requests the dollar amount to be converted, calls calc_exchange, and processes the display outputs
+		function processInputOutput(){
+			let dollarAmount = parseFloat(window.prompt("Please enter the US dollar amount to convert:"));
+
+			//process outputs
+			document.write(`$${dollarAmount} in U.S Currency is approximately equivalent to:<br>
+							${calc_exchange(dollarAmount, GBPrate).toFixed(2)} GBP (British Pounds)<br>
+							${calc_exchange(dollarAmount, CADrate).toFixed(2)} CAD (Canadian Dollars)<br>
+							${calc_exchange(dollarAmount, EURrate).toFixed(2)} EUR (Euros) <br>
+							${calc_exchange(dollarAmount, YENrate).toFixed(2)} YEN (Japanese Yen)<br>
+							${calc_exchange(dollarAmount, RUPrate).toFixed(2)} RUP (Indian Rupee)`);
+		}//end requestUserInput
+
+		//calc_exchange calculates the exchange rate of our input amount
+		function calc_exchange(dollarAmount,exchangeType){
+			return dollarAmount *exchangeType;
+		}//end calc_exchange
+
+	</script>
+</head>
+<body style="background-color: orange;">
+
+	<script type="text/javascript">
+		//call processInputOutput
+		processInputOutput();
+	</script>
+</body>
+</html>
